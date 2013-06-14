@@ -1,8 +1,3 @@
-.inline {
-    float: left;
-    clear: none;
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -21,12 +16,30 @@ html, body {
 }
 
 input, textarea, select {
-    margin: 0 0 15px 0;
-    line-height: 20px;
-    height: 20px;
+    margin: 0 5px;
+    line-height: 30px;
     color: #C8C8C8;
     background-color: #333;
     border: none;
+    font-size: 14px;
+}
+
+input, select {
+    height: 30px;
+    padding: 0 5px;
+    display: inline-block;
+}
+
+textarea {
+    float: left;
+    clear: both;
+    width: 100%;
+    height: 120px;
+    padding: 5px;
+}
+
+select {
+    padding: 0 0 0 5px;
 }
 
 h1 {
@@ -45,17 +58,6 @@ h3 {
     border-bottom: 2px groove #000;
 }
 
-input[type="radio"] {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-}
-
-.together {
-    clear: none;
-    width: auto;
-}
-
 label {
     font-weight: bold;
     float: left;
@@ -67,28 +69,25 @@ label {
     text-align: right;
 }
 
+legend {
+    margin: 0 auto;
+}
+
+.together {
+    clear: none;
+    width: auto;
+}
+
 input[type="text"],
 input[type="number"],
 select {
     width: 150px;
     float: left;
     clear: both;
-    height: 30px;
-    padding: 0 0 0 5px;
-    font-size: 14px;
-    margin: 0;
 }
 
-input[disabled] {
-    background-color: #510074;
-    background-color: transparent;
-    border: 1px solid #510074;
-}
-
-input[disabled]::-webkit-outer-spin-button,
-input[disabled]::-webkit-inner-spin-button {
-    display: none;
-    margin: 0;
+input[type="number"] {
+    clear: none;
 }
 
 input:focus,
@@ -99,33 +98,20 @@ select:active {
     background-color: #510074;
 }
 
-input[type="number"] {
-    clear: none;
-    margin: 0 5px;
+input[disabled] {
+    background-color: #510074;
+    background-color: transparent;
+    border: 1px solid #510074;
 }
-
-/*input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    display: none;
-    margin: 0;
-}*/
-
-textarea {
-    float: left;
-    clear: both;
-    width: 100%;
-    height: 120px;
-    padding: 5px;
-    font-size: 14px;
-}
-
-input {
-    display: inline-block;    
-}
+    
+    input[disabled]::-webkit-outer-spin-button,
+    input[disabled]::-webkit-inner-spin-button {
+        display: none;
+        margin: 0;
+    }
 
 input[type="submit"],
 input[type="button"] {
-    display: inline-block;
     float: left;
     width: 50%;
     height: 100px;
@@ -153,10 +139,6 @@ input[type="submit"] {
     width: 100%;
 }
 
-legend {
-    margin: 0 auto;
-}
-
 .error {
     border: 1px solid #ba2222;
     background-color: #e06e6e;
@@ -181,84 +163,11 @@ header {
     padding: 15px 0 0 0;
 }
 
-nav {
-    margin: 0 auto;
-    width: 960px;
-    height: 30px;
-    background-color: #333;
-    border: 1px solid #1E1E1E;
-    border-width: 1px 0;
-}
-    nav h2 {
-        display: none;
-    }
-
-    nav ul {
-        display: block;
-        width: 400px;
-        list-style-type: none;
-        list-style: none;
-        margin: 0 auto;
-    }
-
-        nav ul li {
-            display: block;
-            float: left;
-            width: 120px;
-            height: 28px;
-            background-color: #333;
-            border: 1px solid #1E1E1E;
-            border-width: 0 1px;
-            text-align: center;
-            vertical-align: bottom;
-            padding: 5px 0 0 0;
-            margin: 0 0 0 -1px;
-        }
-            nav ul li.active {
-                font-weight: bold;
-                background-color: #1E1E1E;
-            }
-        
-            nav ul li a {
-                display: block;
-                width: 100%;
-                height: 100%;
-                text-align: center;
-                vertical-align: bottom;
-                color: #C8C8C8;
-                text-decoration: none;
-                font-size: 16px;
-            }
-
 #content {
     display: block;
     width: 960px;
     margin: 10px auto 0 auto;
 }
-
-.page {
-    display: none;
-    width: 100%;
-}
-    
-    .page.active {
-        display: block;
-    }
-    
-    .page h3 {
-        text-align: center;
-        display: none;
-    }
-
-    .page fieldset {
-        width: 100%;
-        border: 4px groove #510074;
-        border: none;
-    }
-
-        .page fieldset legend {
-            display: none;
-        }
 
 .oldie {
 
