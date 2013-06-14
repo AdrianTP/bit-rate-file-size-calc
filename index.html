@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6 old-ie"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7 old-ie"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8 old-ie"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">        <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"> 
+<!--<![endif]-->
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Audio/video format bit rate and file size calculator with no compression or optimization." />
+    <meta name="keywords" content="audio, video, media, multimedia, bitrate, bit rate, bit, rate, file size, file, size, calculator, quality" />
+    <meta name="author" content="Adrian Thomas-Prestemon" />
+    <!--<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0" />-->
+    <meta name="viewport" content="maximum-scale=1.0,user-scalable=no,width=device-width" />
+    <title>A/V Bit Rate and File Size Calculator</title>
+    <script src="./assets/js/jquery-1.9.1.min.js"></script>
+    <script src="./assets/js/util.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <noscript>
+        <p class="error">This page requires JavaScript to function. There is no server-side component to process your input.</p>
+    </noscript>
+    <header>
+        <h1>Raw Audio/Video Bit Rate and File Size Calculator</h1>
+        <h2>Provides approximate values, assuming raw data with no compression or optimization</h2>
+    </header>
+    <div id="content">
+        <form id="video-calculator" class="clearfix">
+            <fieldset class="clearfix">  
+                <legend>Video Bit Rate:</legend>
+                <label for="video-pixel-width">Width:</label>
+                <input id="video-pixel-width" type="number" min="0" step="1" max="" value="1920" />
+                <label class="together">pixels</label>
+                <label for="video-pixel-height">Height:</label>
+                <input id="video-pixel-height" type="number" min="0" step="1" max="" value="1080" />
+                <label class="together">pixels</label>
+                <label for="video-colour-depth">Colour Depth:</label>
+                <input id="video-colour-depth" type="number" min="0" step="1" max="" value="24" />
+                <label class="together">bits</label>
+                <label for="video-frame-rate">Frame Rate:</label>
+                <input id="video-frame-rate" type="number" min="0" step="1" max="" value="30" />
+                <label class="together">fps</label>
+                <label for="video-bit-rate">Bit Rate:</label>
+                <input id="video-bit-rate" type="number" value="" disabled="disabled" />
+                <select id="video-bit-rate-prefix" class="together">
+                    <option value="1">plain old</option>
+                    <optgroup label="Decimal">
+                        <option value="1000">kilo (k)</option>
+                        <option value="1000000">mega (M)</option>
+                        <option value="1000000000">giga (G)</option>
+                        <option value="1000000000000">tera (T)</option>
+                    </optgroup>
+                    <optgroup label="Binary">
+                        <option value="1024" selected="selected">kibi (Ki)</option>
+                        <option value="1048576">mebi (Mi)</option>
+                        <option value="1073741824">gibi (Gi)</option>
+                        <option value="1099511627776">tebi (Ti)</option>
+                    </optgroup>
+                </select>
+                <select id="video-bit-rate-bitbyte" class="together"">
+                    <option value="1" selected="selected">bits (b)</option>
+                    <option value="8">bytes (B)</option>
+                </select>
+                <label class="together">&#47;</label>
+                <select id="video-bit-rate-time-multiplier" class="together"">
+                    <option value="1" selected="selected">second</option>
+                    <option value="60">minute</option>
+                    <option value="3600">hour</option>
+                    <option value="86400">day</option>
+                </select>
+            </fieldset>
+            <fieldset class="clearfix">  
+                <legend>Audio Bit Rate:</legend>
+                <label for="audio-bit-depth">Bit Depth:</label>
+                <input id="audio-bit-depth" type="number" min="0" step="1" max="" value="24" />
+                <label class="together">bits</label>
+                <label for="audio-sample-frequency">Frequency:</label>
+                <input id="audio-sample-frequency" type="number" value="96" />
+                <select id="audio-sample-frequency-multiplier" class="together">
+                    <option value="1">hertz (Hz)</option>
+                    <option value="1000" selected="selected">kilohertz (kHz)</option>
+                    <option value="1000000">megahertz (MHz)</option>
+                    <option value="1000000">gigahertz (GHz)</option>
+                </select>
+                <label for="audio-bit-rate">Bit Rate:</label>
+                <input id="audio-bit-rate" type="number" value="" disabled="disabled" />
+                <select id="audio-bit-rate-prefix" class="together">
+                    <option value="1">plain old</option>
+                    <optgroup label="Decimal">
+                        <option value="1000">kilo (k)</option>
+                        <option value="1000000">mega (M)</option>
+                        <option value="1000000000">giga (G)</option>
+                        <option value="1000000000000">tera (T)</option>
+                    </optgroup>
+                    <optgroup label="Binary">
+                        <option value="1024" selected="selected">kibi (Ki)</option>
+                        <option value="1048576">mebi (Mi)</option>
+                        <option value="1073741824">gibi (Gi)</option>
+                        <option value="1099511627776">tebi (Ti)</option>
+                    </optgroup>
+                </select>
+                <select id="audio-bit-rate-bitbyte" class="together">
+                    <option value="1" selected="selected">bits (b)</option>
+                    <option value="8">bytes (B)</option>
+                </select>
+                <label class="together">&#47;</label>
+                <select id="audio-bit-rate-time-multiplier" class="together">
+                    <option value="1" selected="selected">second</option>
+                    <option value="60">minute</option>
+                    <option value="3600">hour</option>
+                    <option value="86400">day</option>
+                </select>
+            </fieldset>
+            <fieldset class="clearfix">
+                <legend>File Size:</legend>
+                <label for="video-file-length-time">Time:</label>
+                <input id="video-file-length-time" type="number" min="0" step="1" max="" value="90" />
+                <select id="video-file-length-time-multiplier" class="together">
+                    <option value="1">seconds</option>
+                    <option value="60" selected="selected">minutes</option>
+                    <option value="3600">hours</option>
+                    <option value="21600">days</option>
+                </select>
+                <label for="audio-channels">Channels:</label>
+                <input id="audio-channels" type="number" min="0" step="1" max="" value="6" />
+                <label class="together">(5.1 means 6)</label>
+                <label for="video-file-size">Size:</label>
+                <input id="video-file-size" type="number" value="" disabled="disabled" />
+                <select id="video-file-size-prefix" class="together">
+                    <option value="1">plain old</option>
+                    <optgroup label="Decimal">
+                        <option value="1000">kilo (k)</option>
+                        <option value="1000000">mega (M)</option>
+                        <option value="1000000000">giga (G)</option>
+                        <option value="1000000000000">tera (T)</option>
+                    </optgroup>
+                    <optgroup label="Binary">
+                        <option value="1024">kibi (Ki)</option>
+                        <option value="1048576">mebi (Mi)</option>
+                        <option value="1073741824" selected="selected">gibi (Gi)</option>
+                        <option value="1099511627776">tebi (Ti)</option>
+                    </optgroup>
+                </select>
+                <select id="video-file-size-bitbyte" class="together">
+                    <option value="8" selected="selected">bytes (B)</option>
+                    <option value="1">bits (b)</option>
+                </select>
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+
+</html>
