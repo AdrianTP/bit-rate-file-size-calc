@@ -92,7 +92,9 @@ input[disabled]::-webkit-inner-spin-button {
 }
 
 input:focus,
-input:active {
+input:active,
+select:focus,
+select:active {
     outline: none;
     background-color: #510074;
 }
